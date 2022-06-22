@@ -1,0 +1,91 @@
+{
+  "name": "feathers-prisma",
+  "description": "Prisma service adapter for FeathersJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/feathersjs-ecosystem/feathers-prisma",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/feathersjs-ecosystem/feathers-prisma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/feathersjs-ecosystem/feathers-prisma/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "feathers",
+    "feathers-plugin",
+    "REST",
+    "Socket.io",
+    "realtime",
+    "prisma",
+    "service"
+  ],
+  "author": {
+    "name": "Feathers contributors",
+    "email": "hello@feathersjs.com",
+    "url": "http://feathersjs.com"
+  },
+  "contributors": [
+    "David Luecke <daff@neyeon.de> (http://neyeon.com)",
+    "Marshall Thompson <marshall@creativeideal.net>"
+  ],
+  "main": "lib/",
+  "types": "types",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "lib/**",
+    "types/**",
+    "*.d.ts",
+    "*.js"
+  ],
+  "scripts": {
+    "prepublish": "npm run compile",
+    "compile": "shx rm -rf lib/ && tsc",
+    "test": "npm run lint && npm run dtslint && npm run coverage",
+    "mocha": "mocha --recursive test/ --exit",
+    "postpublish": "git push origin --tags && npm run changelog && git push origin",
+    "changelog": "github_changelog_generator --user feathersjs-ecosystem --project feathers-prisma && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "lint": "semistandard --fix",
+    "dtslint": "dtslint types",
+    "update-dependencies": "ncu -u",
+    "coverage": "nyc npm run mocha"
+  },
+  "semistandard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "dependencies": {
+    "@feathersjs/adapter-commons": "^5.0.0-pre.14",
+    "@feathersjs/commons": "^5.0.0-pre.14",
+    "@feathersjs/errors": "^5.0.0-pre.14"
+  },
+  "devDependencies": {
+    "@feathersjs/adapter-tests": "^5.0.0-pre.14",
+    "@feathersjs/express": "^5.0.0-pre.14",
+    "@feathersjs/feathers": "^5.0.0-pre.14",
+    "@feathersjs/socketio": "^5.0.0-pre.14",
+    "@prisma/client": "^3.5.0",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.7",
+    "chai": "^4.3.4",
+    "dtslint": "^4.2.0",
+    "mocha": "^9.1.3",
+    "npm-check-updates": "^12.0.2",
+    "nyc": "^15.1.0",
+    "prisma": "^3.5.0",
+    "run-rs": "^0.7.5",
+    "semistandard": "^16.0.1",
+    "shx": "^0.3.3",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
