@@ -8,6 +8,10 @@ A [Feathers](https://feathersjs.com) database adapter for [Prisma](https://www.p
 
 > Note: There may be better options than this adapter, by now.  My goal was to build a clean adapter for Prisma to try out Prisma 2. I have since determined that I will not be using Prisma.  I've published it as a reference and to not lose the code.
 
+## NOT PUBLISHED TO npm
+
+This was never published to npm, so it can't be installed.  The feathers-prisma package already on npm is not this one.
+
 ```bash
 $ npm install --save prisma feathers-prisma
 ```
